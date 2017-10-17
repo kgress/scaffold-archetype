@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>Scaffold Archetype</name>
+    <description>A quick start configuration for creating new Scaffold Projects</description>
+
+    <groupId>io.github.kgress.scaffold-archetype</groupId>
+    <artifactId>scaffold-archetype</artifactId>
+    <version>DEV</version>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven-archetype-plugin.version>3.1.1</maven-archetype-plugin.version>
+        <maven-resource-plugin.version>3.1.0</maven-resource-plugin.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.github.kgress.scaffold</groupId>
+                <artifactId>scaffold</artifactId>
+                <version>${io.github.kgress.scaffold.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.kgress.scaffold</groupId>
+                <artifactId>framework</artifactId>
+                <version>${io.github.kgress.scaffold.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.kgress.scaffold</groupId>
+                <artifactId>environment</artifactId>
+                <version>${io.github.kgress.scaffold.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resource-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-archetype-plugin</artifactId>
+                <version>${maven-archetype-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

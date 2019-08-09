@@ -1,5 +1,6 @@
 package ${package}.page;
 
+import ${package}.BasePage;
 import io.github.kgress.scaffold.webelements.ButtonWebElement;
 import io.github.kgress.scaffold.webelements.DivWebElement;
 import io.github.kgress.scaffold.webelements.InputWebElement;
@@ -14,6 +15,11 @@ public class LoginPage extends BasePage {
     @Getter private InputWebElement passwordInput = new InputWebElement(By.id("password"));
     @Getter private ButtonWebElement submitButton = new ButtonWebElement(By.className("btn_action"));
     @Getter private DivWebElement credentialsInfo = new DivWebElement(By.id("login_credentials"));
+
+    @Override
+    public boolean isOnPage() {
+        return credentialsInfo.isDisplayed();
+    }
 
     public void login(String username, String password) {
         usernameInput.sendKeys(username);

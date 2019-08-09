@@ -8,9 +8,9 @@
         <version>${version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
-    <artifactId>environment</artifactId>
+    <artifactId>${artifactId}</artifactId>
 
     <dependencies>
         <dependency>

@@ -8,6 +8,7 @@
     <groupId>io.github.kgress.scaffold-archetype</groupId>
     <artifactId>scaffold-archetype</artifactId>
     <version>DEV</version>
+    <packaging>maven-archetype</packaging>
 
     <properties>
         <java.version>11</java.version>
@@ -37,11 +38,22 @@
     </dependencyManagement>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>${maven-archetype-plugin.version}</version>
+            </extension>
+        </extensions>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>${maven-resource-plugin.version}</version>
+                <configuration>
+                    <addDefaultExcludes>false</addDefaultExcludes>
+                </configuration>
             </plugin>
 
             <plugin>

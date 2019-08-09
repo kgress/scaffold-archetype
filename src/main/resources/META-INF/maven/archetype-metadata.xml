@@ -2,53 +2,38 @@
 <archetype-descriptor name="${artifactId}" xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
                       xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modules>
+        <module id="core" dir="core" name="core">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/test/java</directory>
+                </fileSet>
+            </fileSets>
+        </module>
+
+        <module id="environment" dir="environment" name="environment">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                </fileSet>
+            </fileSets>
+        </module>
+    </modules>
+
     <fileSets>
         <!--Root Files-->
         <fileSet filtered="true">
-            <directory></directory>
+            <directory/>
             <includes>
                 <include>.gitignore</include>
                 <include>README.MD</include>
             </includes>
         </fileSet>
     </fileSets>
-
-    <modules>
-        <module id="core" dir="core" name="core">
-            <fileSets>
-                <fileSet>
-                    <fileSet filtered="true" packaged="true" encoding="UTF-8">
-                        <directory>src/main/java</directory>
-                        <includes>
-                            <include>**/*.java</include>
-                        </includes>
-                    </fileSet>
-                    <fileSet filtered="true" packaged="true" encoding="UTF-8">
-                        <directory>src/main/test/java</directory>
-                        <includes>
-                            <include>**/*.java</include>
-                        </includes>
-                    </fileSet>
-                </fileSet>
-            </fileSets>
-        </module>
-        <module id="environment" dir="environment" name="environment">
-            <fileSets>
-                <fileSet>
-                    <fileSet filtered="true" packaged="true" encoding="UTF-8">
-                        <directory>src/main/java</directory>
-                        <includes>
-                            <include>**/*.java</include>
-                        </includes>
-                    </fileSet>
-                    <fileSet filtered="true" packaged="true" encoding="UTF-8">
-                        <directory>src/main/java/resources</directory>
-                        <includes>
-                            <include>**/*.properties</include>
-                        </includes>
-                    </fileSet>
-                </fileSet>
-            </fileSets>
-        </module>
-    </modules>
 </archetype-descriptor>

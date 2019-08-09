@@ -1,11 +1,11 @@
-package ${package}.environment;
+package ${package};
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@ComponentScan(value = ${artifactId})
+@ComponentScan(value = "${groupId}")
 @PropertySource("classpath:/application.properties")
 public class EnvironmentConfig {
 }

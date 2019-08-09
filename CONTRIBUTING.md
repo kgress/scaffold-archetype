@@ -60,13 +60,12 @@ Interested in fixing a bug or adding/updating a feature? Thank you! Your contrib
 
 1. Fork the repository and create your branch from master.
 2. Do the work! 
-3. *Add Tests!* It's imperative we maintain a high confidence in the code we're outputting. If there are no tests included in the PR, there won't be a merge. The only exception to this is if the work done was not code related.
-4. Run a `mvn clean install` to ensure everything compiles and the tests pass.
-5. Squash your commits from your branch to a single commit and make the commit message the title of the ticket. Do *NOT* rebase and squash off of scaffold-archetype master.
-6. Create a Pull Request with your forked repo against the core repo's `master` branch.
-7. Review process 
-8. Code merged into master
-9. +100 points to awesomeness for contributing!
+3. Run a `mvn clean install` to ensure everything compiles and the tests pass.
+4. Squash your commits from your branch to a single commit and make the commit message the title of the ticket. Do *NOT* rebase and squash off of scaffold-archetype master.
+5. Create a Pull Request with your forked repo against the core repo's `master` branch.
+6. Review process 
+7. Code merged into master
+8. +100 points to awesomeness for contributing!
 
 ## License
 By contributing to Scaffold Archetype, you agree that your contributions will be licensed. For more information regarding our open source licensing, please view the [license](https://github.com/kgress/scaffold-archetype/LICENSE.txt) document.

@@ -1,0 +1,30 @@
+language: java
+jdk:
+- openjdk11
+
+env:
+  global:
+  - secure: "huCU+Qgv54Yza/NddEJvc7inQS8bdFa3R1R6DbNG7Zzz4jWu955vdR2rthS0Fpx6mscBJVQXG68uVueEuraHGzd1T4+E8y795vIiraxP2Jqfin8Ci7ocfhm1x1fkifc3UNWWb/CTV6huAiPkNBG8HfaUBmyYlUnaCzmg1Okv+6Rks/YaELMGheU0vOsdoYZnVZMbi+gB7iE74MvKcxrVdFktjWVWjKVXhEy8ZK6xPXfirs34Sotrv/81v5YuR/FX7/g+SudldQpU7HNoih+aAgTzeZnC+SbCwUKfALQbJJiqbCtBBdAaz0zVoRiQ7H5kNTykR8ay6oGQiw6GKseSVvl89L2HjoSh9u5Vg/bm/RtUYa7yiFDVPBbpxJ4MnDBQkQBQGKkJM9aOgx7shR4ZE6YSQBLRf/gh2Vni7zcjNbDGohR5VfWnjNFzJ+TLSHSjnOH0cSLL1Dhuol4s8UdNC0aUuci1uALgYx6zDz1eYgUOE6v7uVqVR5VeCj1/SGDm8NbUuz7S/OCotsXgvxuo92L5WB6M7EdwtWadq6nz1vSVrbQL1AEDefFyftapApq+5GqyVPxEk54XTwBxbngRnKbjGsvCsyxS72TUBiiDMFqRYdks3898oK9iPSPrEl4ZV22GDtQ3BBh1xQK2Ajue85Q4W+XAo3ZNu5N1JEbCLUg="
+  - secure: "btoRt5TSK+CCvCSss10kD92BRRMW8WYKlszPqlSaG9dAOKZt8jDg3edacJNLYoJOh9+0QmDuReBxvHm3zMVn9wvMW1N3YUPS8Hz/zWWMudrgLSClOqe16a+bbhqF99XntSh0EUpNPTXtlInBJR60rxHj7UhT7eKC4irbxjIxF28CrPfMD2hEDjjXtIaeMXMjufQtgNAccR9tycTWdSwzfHn+A8mjqtylJ6opkUn6UbkZ0xpEapjFY/AhIh2QR7oTcUfDhUa7nDQpLtT9ae6BD4IvWZMu3H7FHrQufJ0ISLHsYdIvV/Xm4RfBs6g4GXuZQ4sLf+RlzoXB40oGCP0mKo9z18wdFcEPeGE07HHkoVELLlBUAAzbhZHZDMLCf12u32Ffp3QCcf+MaXmOum4pkrRN9T5xji/+TNMKvsgQ1HU+R78JKLZEFmAqDa7SjK99nM9IFg2/TwZGpRlb742Fnxxs0iyvFf7K2VmghdBM30DTIW0rjmIQ30lGcVlHF6/011NkTljTU4s5F5S5U8GAzmBsUbLO0YEh/FCtgaek4d+EtWDPXcbwuHw29ErwhVd9GQBc60j3etg0CPwzC8ooxzTxf8ukRXsXLO9HyONUyI0UD0FM3uyLXK7sLdu01aWzUtGP2N7lUO6ZKHriQjlXaanTf8i9+xnRVPsTB7ecZFU="
+  - secure: "IhhKjIi9OyQ1mwcghLL17a7tstq0hF6smlWIroTteHBRaEFRYzAVhxLfJP4UtQ4ai7rwpPZ50OoJ05cWIme+JLYj+t8oiOTszgDnbqVG4OMiQHOZnU9M5qeGktw48Uc65yRcJzMREKoV5hsZbiwnlvjEDH+3gUqum8fvydiP84TkLthxXQVMzuhw9wSUGL37S1PPErgSKslGaNTpe6J/tVb0JzjfJRTNCq4yiut7BnEttiy8uujdEHvSJdIyVNGxTPSvjH0w+bx+rsx/IX1x2Xv1IAYxtu+PEPMkKUCr0yDgGS+JhCitLsvrr3SmnNvDbD80n03VSDTcdl5/BIRmu1FSf0010OISyKz1gXXZCHQFvA2O40e7Bftr1Dxvt1wJAE8u3K0NVvkghBu7YVbotuaVJJB+rQmiT6AjpD3WaFeNXGiAGP8ulNlA+sPmk9/r43wV0UkYql41d0KDm90XNJ53E1TnSpSvzSKYjmAWC8IyEujaJtH3mUMSP68awMyRsBB2rmssf179T26/98dYJYXyqzXjneO+r+SNLmbN8bh4thrhVz4cK365d2tAvOeVPsQSG5NsbYFhigXq5zcePRMA4lp71dP0/a+PSfBHpFUD9cnXkDBFCb60QItUHs1T6ID+O86A2TUDm0bkwDX+HnGC1TAFnW9fZfxNMfs+mH0="
+  - secure: "ILhpQTK4FBEaVm94LF85bo7+8GrXRAeGbQTybhZRamSocD1tb+m8WbJzFSPlzh/cykvTstUX0oeKfg/iqmmtWw2z+Q8b4j0tIRVjnoYH2iJUttZ8aYhhwA1w2crdRF3Y0icLOcHrblik0AoNfvbupnla9juf8Aw2fbddyHd8qsasE5ZYRImeurwOA7vgbgrzzagnWI5TBwPCvFA+R7BCOzJHd2YgXxSILp7RFg3S1zIEByqkqbjnnXhcbn8LN9UHIa8srcSYanY43biT8a5MJD15IXTqO4bNbYCjzFDOJzcq57kDVHLyl8bciTNbwojBnquiiLItxZ77O80sU2dEI+G+8DbJ7OgXaRGaViukIjyYjTuwUAncn9l0eCpC+JXim85NVDXt2Nuy15CXPrWfjC8rKgtZ7MkYgef1ju+KoJqsZTFAhVAKbVrsy8UPpK8bIzJ4Ysy/LFGhM5hCtRPvU3Te51PAbFWE8KbqD7TyKcslOPilH5uogFkQVqPnfQWFl0Ou4D1AErdf7Y4c4IZTBNd4R46LmilnaKfUwGSmunXpNz91TtPl1YubJ0Q+Nvr2SLABTgSCw2/AMOC5QF1ivDUqPrH/gjK1AnwyKsiHaUbTzufYTPkCUde2GpVIFJiKstSfWhid9Ee/ZawrpjAXRPqGd2T5+l5h8QJYuNaHv0o="
+
+jobs:
+  include:
+    # This job is for running testing against feature pull requests to ensure tests are passing. It also serves as a pre req to deploying.
+    - stage: test
+      name: 'Run testing'
+      install: true
+      script:
+        - mvn test
+
+    # This job is for deploys to maven central using conventional commits. This job should only run against the master branch when it detects a merge. It should also not execute against forked repos.
+    - stage: deploy
+      name: 'Deploy to Maven Central'
+      if: branch = master
+      install: true
+      before_script:
+      # pack of secrets
+        - openssl aes-256-cbc -K $encrypted_b448420d5b60_key -iv $encrypted_b448420d5b60_iv -in secrets.tar.enc -out secrets.tar -d
+        - tar xf secrets.tar --directory deploy/
+      script: bash deploy/deploy.sh

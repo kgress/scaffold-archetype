@@ -33,3 +33,13 @@ will be updated to reflect that.
 4. Run the following command: `mvn archetype:generate -DarchetypeGroupId=io.github.kgress.scaffold-archetype -DarchetypeArtifactId=scaffold-archetype -DarchetypeVersion=DEV`
 5. Follow the prompts for entering your groupId and artifactId (along with version and package if you want something different than the defaults)
 6. The archetype will generate the new project for you.
+
+## IDE - New Project Wizard
+IntelliJ
+1. In IntelliJ, create a new project using the new project wizard
+2. Select maven as the project type, java 11 as the JDK, and check the "create from archetype" checkbox
+3. Click the "add archetype" button
+4. Enter the groupId of `io.github.kgress.scaffold-archetype`
+5. Enter the artifactId of `scaffold-archetype`
+6. Enter the current version of `scaffold-archetype` by checking out [the Central Repository](https://search.maven.org/search?q=g:io.github.kgress.scaffold-archetype)
+7. Click okay

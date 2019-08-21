@@ -1,6 +1,5 @@
-New Project Documentation!!!
-=============================
+# New Project Documentation!!!
 
-Summary
---------
-You'd better put some documentation here 
+## Summary
+Put some useful documentation regarding your project here. Provide information like current version of the project,
+links, required tools for development, how to run, project maintaners, etc.  

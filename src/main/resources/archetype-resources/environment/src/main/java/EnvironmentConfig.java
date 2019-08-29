@@ -26,7 +26,9 @@ import org.springframework.stereotype.Service;
 public class EnvironmentConfig {
 
     /**
-     * An example of how to create an {@link ObjectMapper} using the {@link Bean} method level annotation
+     * An example of how to create an {@link ObjectMapper} using the {@link Bean} method level annotation. This is merely an
+     * example how you could create new method level annotated beans. If you'd like to use an object mapper for some sort of API
+     * integration, use the default {@link ObjectMapper} created by Spring Boot.
      *
      * @return the {@link ObjectMapper}
      */

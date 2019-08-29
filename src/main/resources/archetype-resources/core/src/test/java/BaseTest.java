@@ -2,6 +2,7 @@ package ${package};
 
 import io.github.kgress.scaffold.environment.config.ScaffoldConfiguration;
 import io.github.kgress.scaffold.webdriver.ScaffoldBaseTest;
+import io.github.kgress.scaffold.extensions.SauceExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -34,7 +35,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  * extends off of BaseTest will now be able to access everything from ScaffoldBaseTest and the Navigation class from your own project.
  */
 @Execution(ExecutionMode.CONCURRENT)
-@ExtendWith(SpringExtension.class)
+@ExtendWith({SpringExtension.class, SauceExtension.class})
 @SpringBootTest(
         webEnvironment = SpringBootTest.WebEnvironment.NONE,
         classes = { EnvironmentConfig.class, ScaffoldConfiguration.class }

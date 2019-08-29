@@ -50,26 +50,6 @@
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.github.kgress.scaffold</groupId>
-                <artifactId>scaffold</artifactId>
-                <version>${io.github.kgress.scaffold.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.kgress.scaffold</groupId>
-                <artifactId>framework</artifactId>
-                <version>${io.github.kgress.scaffold.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.kgress.scaffold</groupId>
-                <artifactId>environment</artifactId>
-                <version>${io.github.kgress.scaffold.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <build>
         <extensions>
             <extension>

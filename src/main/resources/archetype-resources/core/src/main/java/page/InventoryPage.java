@@ -71,6 +71,10 @@ public class InventoryPage extends BasePage {
         return getInventoryHeader().isDisplayed();
     }
 
+    public InventoryPage() {
+        isOnPage();
+    }
+
     /**
      * Creates a new instance of a {@link DivWebElement} by finding the item number with the {@link #getItemNumber(int)} method and
      * returns an item name as {@link String}

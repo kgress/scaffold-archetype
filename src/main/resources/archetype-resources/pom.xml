@@ -14,9 +14,9 @@
 
     <properties>
         <java.version>11</java.version>
-        <io.github.kgress.scaffold.version>2.1.1</io.github.kgress.scaffold.version>
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <org-projectlombok.version>1.18.8</org-projectlombok.version>
+        <io.github.kgress.scaffold.version>2.3.6</io.github.kgress.scaffold.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <org-projectlombok.version>1.18.10</org-projectlombok.version>
     </properties>
 
     <dependencyManagement>
@@ -63,7 +63,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M3</version>
+                <version>3.0.0-M4</version>
             </plugin>
         </plugins>
     </build>

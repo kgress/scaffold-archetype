@@ -70,6 +70,10 @@ public class LoginPage extends BasePage {
         return getCredentialsInfo().isDisplayed();
     }
 
+    public LoginPage() {
+        isOnPage();
+    }
+
     /**
      * Performs a login action with a provided username and password
      *

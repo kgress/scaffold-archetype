@@ -1,7 +1,7 @@
 package ${package}.login;
 
 import ${package}.BaseTest;
-import ${package}.page.InventoryPage;
+import ${package}.pages.InventoryPage;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * This class is an example test class pertaining to the login page <a href>https://www.saucedemo.com/</a>
  * The following tests are merely examples of tests you'd consider writing.
  *
- * Ensure that all of your test classes are importing the junit5 {@link Test} annotation from junit.jupiter.api and *not* junit4.
+ * Ensure that all of your test classes are importing the junit5 {@link Test} annotation from junit.jupiter.api and not junit4.
  */
 public class LoginTest extends BaseTest {
 

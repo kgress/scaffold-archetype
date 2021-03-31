@@ -1,14 +1,16 @@
 package ${package};
 
 import io.github.kgress.scaffold.environment.config.ScaffoldConfiguration;
-import io.github.kgress.scaffold.webdriver.ScaffoldBaseTest;
 import io.github.kgress.scaffold.extensions.SauceExtension;
+import io.github.kgress.scaffold.webdriver.ScaffoldBaseTest;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.openqa.selenium.By;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * Base Test
@@ -34,8 +36,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  * With this annotation, we can wire in an instance of a <prep>@Component</prep> with ease. Since it's protected, any class that
  * extends off of BaseTest will now be able to access everything from ScaffoldBaseTest and the Navigation class from your own project.
  */
+@Slf4j
 @Execution(ExecutionMode.CONCURRENT)
-@ExtendWith({SpringExtension.class, SauceExtension.class})
+@ExtendWith({SauceExtension.class})
 @SpringBootTest(
         webEnvironment = SpringBootTest.WebEnvironment.NONE,
         classes = { EnvironmentConfig.class, ScaffoldConfiguration.class }
@@ -52,4 +55,23 @@ public abstract class BaseTest extends ScaffoldBaseTest {
      */
     @Autowired
     protected Navigation navigation;
+
+    /**
+     * This setting activates explicit waits for all elements that are interacted with.
+     */
+    @BeforeAll
+    public static void configureOptions() {
+        enableExplicitWaits();
+    }
+
+    /**
+     * An example of a potential shared method tests could require. Execute Hover over Element by CSS
+     *
+     * @param cssSelector the cssSelector to hover over
+     */
+    protected void hoverOverElementByCSS(String cssSelector) {
+        log.debug(String.format("Hovering over element %s", cssSelector));
+        var element = getWebDriverWrapper().getBaseWebDriver().findElement(By.cssSelector(cssSelector));
+        getWebDriverWrapper().getActions().moveToElement(element).build().perform();
+    }
 }

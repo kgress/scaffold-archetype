@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * This class is an example test class pertaining to the login page <a href>https://www.saucedemo.com/inventory.html</a>.
  * The following tests are merely examples of tests you'd consider writing.
  *
- * Ensure that all of your test classes are importing the junit5 {@link Test} annotation from junit.jupiter.api and *not* junit4.
+ * Ensure that all of your test classes are importing the junit5 {@link Test} annotation from junit.jupiter.api and not junit4.
  */
 public class InventoryTest extends BaseTest {
 

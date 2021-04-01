@@ -8,6 +8,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
+
 /**
  * Environment Config
  *
@@ -22,7 +24,9 @@ import org.springframework.stereotype.Service;
  */
 @Configuration
 @ComponentScan(value = "${groupId}")
-@PropertySource("classpath:/application.properties")
+@PropertySource({
+        "classpath:/application.properties"
+})
 public class EnvironmentConfig {
 
     /**
@@ -35,6 +39,7 @@ public class EnvironmentConfig {
     @Bean
     public ObjectMapper exampleObjectMapper() {
         // A default object mapper is already provided in application context. Here, you'd customize and return your own
-        return new ObjectMapper();
+        return new ObjectMapper()
+                .configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 }

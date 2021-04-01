@@ -1,9 +1,9 @@
-package ${package}.page;
+package ${package}.pages;
 
-import ${package}.BasePage;
+import io.github.kgress.scaffold.webdriver.BasePage;
 import io.github.kgress.scaffold.webelements.*;
 import lombok.Getter;
-import org.openqa.selenium.By;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Page Objects
@@ -48,13 +48,14 @@ import org.openqa.selenium.By;
  * action that is used to ensure the {@link #inventoryHeader} is correctly appearing on the screen.
  *
  */
+@Slf4j
 public class InventoryPage extends BasePage {
 
     /**
      * The properties we've chosen to define as our page representation for the inventory page
      */
-    @Getter private DivWebElement inventoryList = new DivWebElement(By.className("inventory_list"));
-    @Getter private DivWebElement inventoryHeader = new DivWebElement(By.className("header_secondary_container"));
+    @Getter private DivWebElement inventoryList = new DivWebElement(".inventory_list");
+    @Getter private DivWebElement inventoryHeader = new DivWebElement(".header_secondary_container");
     private final static String INVENTORY_ITEM_NAME = "inventory_item_name";
     private final static String INVENTORY_ITEM_DESCRIPTION = "inventory_item_desc";
     private final static String INVENTORY_ITEM_PRICE = "inventory_item_price";
@@ -64,15 +65,19 @@ public class InventoryPage extends BasePage {
     /**
      * An example of how to use a basic level of page verification
      *
-     * @return true or false based on if the {@link #inventoryHeader} is displayed
+     * @return true or false based on if the {@link #getInventoryHeader()} is displayed
      */
     @Override
     public boolean isOnPage() {
         return getInventoryHeader().isDisplayed();
     }
 
+    /**
+     * An example of how to use verifyIsOnPage() from BasePage. Every time the object is constructed,
+     * we verify the automation is on the correct page with {@link #getInventoryHeader()}
+     */
     public InventoryPage() {
-        isOnPage();
+        verifyIsOnPage(getInventoryHeader());
     }
 
     /**
@@ -83,7 +88,7 @@ public class InventoryPage extends BasePage {
      * @return the item name as {@link String}
      */
     public String getItemName(int itemNumber) {
-        var itemName = getItemNumber(itemNumber).findElement(DivWebElement.class, By.className(INVENTORY_ITEM_NAME));
+        var itemName = getItemNumber(itemNumber).findElement(DivWebElement.class, INVENTORY_ITEM_NAME);
         return itemName.getText();
     }
 
@@ -95,7 +100,7 @@ public class InventoryPage extends BasePage {
      * @return the item description as {@link String}
      */
     public String getItemDescription(int itemNumber) {
-        var itemDesc = getItemNumber(itemNumber).findElement(DivWebElement.class, By.className(INVENTORY_ITEM_DESCRIPTION));
+        var itemDesc = getItemNumber(itemNumber).findElement(DivWebElement.class, INVENTORY_ITEM_DESCRIPTION);
         return itemDesc.getText();
     }
 
@@ -107,7 +112,7 @@ public class InventoryPage extends BasePage {
      * @return the item price as {@link String}
      */
     public String getItemPrice(int itemNumber) {
-        var itemPrice = getItemNumber(itemNumber).findElement(DivWebElement.class, By.className(INVENTORY_ITEM_PRICE));
+        var itemPrice = getItemNumber(itemNumber).findElement(DivWebElement.class, INVENTORY_ITEM_PRICE);
         return itemPrice.getText();
     }
 
@@ -118,7 +123,7 @@ public class InventoryPage extends BasePage {
      * @param itemNumber the item number in the list of available items as {@link int}
      */
     public void addItemToCart(int itemNumber) {
-        var addToCart = getItemNumber(itemNumber).findElement(ButtonWebElement.class, By.className(ADD_TO_CART));
+        var addToCart = getItemNumber(itemNumber).findElement(ButtonWebElement.class, ADD_TO_CART);
         addToCart.click();
     }
 
@@ -130,7 +135,7 @@ public class InventoryPage extends BasePage {
      * @return the result as true or false {@link boolean}
      */
     public boolean itemAddedToCart(int itemNumber) {
-        return getItemNumber(itemNumber).findElement(ButtonWebElement.class, By.className(REMOVE)).isDisplayed();
+        return getItemNumber(itemNumber).findElement(ButtonWebElement.class, REMOVE).isDisplayed();
     }
 
     /**
@@ -142,6 +147,6 @@ public class InventoryPage extends BasePage {
     private DivWebElement getItemNumber(int itemNumber) {
         var inventoryItemSelector = "div.inventory_item:nth-of-type(%d)";
         getInventoryList().getWait().waitUntilDisplayed();
-        return getInventoryList().findElement(DivWebElement.class, By.cssSelector(String.format(inventoryItemSelector, itemNumber)));
+        return getInventoryList().findElement(DivWebElement.class, String.format(inventoryItemSelector, itemNumber));
     }
 }

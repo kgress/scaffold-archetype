@@ -14,23 +14,29 @@
 
     <properties>
         <java.version>11</java.version>
-        <io.github.kgress.scaffold.version>2.3.6</io.github.kgress.scaffold.version>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <org-projectlombok.version>1.18.10</org-projectlombok.version>
+        <io.github.kgress.scaffold.version>2.12.0</io.github.kgress.scaffold.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <log4j2.version>1.2.17</log4j2.version>
+        <org.apache.maven.plugins.maven-surefire-plugin.version>3.0.0-M4</org.apache.maven.plugins.maven-surefire-plugin.version>
+        <org-projectlombok.version>1.18.8</org-projectlombok.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>io.github.kgress.scaffold</groupId>
-                <artifactId>scaffold</artifactId>
-                <version>${io.github.kgress.scaffold.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.github.kgress.scaffold</groupId>
                 <artifactId>framework</artifactId>
                 <version>${io.github.kgress.scaffold.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>junit</artifactId>
+                        <groupId>junit</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>junit-vintage-engine</artifactId>
+                        <groupId>org.junit.vintage</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
@@ -45,8 +51,28 @@
                 <version>${org-projectlombok.version}</version>
                 <scope>provided</scope>
             </dependency>
+
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${org.apache.commons.commons-io.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <!--Used in both framework and core modules-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
@@ -63,8 +89,15 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M4</version>
+                <version>${org.apache.maven.plugins.maven-surefire-plugin.version}</version>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 </project>

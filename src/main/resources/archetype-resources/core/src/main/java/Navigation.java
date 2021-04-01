@@ -3,8 +3,8 @@ package ${package};
 import io.github.kgress.scaffold.webdriver.WebDriverNavigation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import ${package}.page.LoginPage;
-import ${package}.page.InventoryPage;
+import ${package}.pages.LoginPage;
+import ${package}.pages.InventoryPage;
 
 /**
  * Page Navigation

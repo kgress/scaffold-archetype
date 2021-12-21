@@ -15,10 +15,11 @@
     <properties>
         <java.version>11</java.version>
         <io.github.kgress.scaffold.version>2.12.0</io.github.kgress.scaffold.version>
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <log4j2.version>1.2.17</log4j2.version>
-        <org.apache.maven.plugins.maven-surefire-plugin.version>3.0.0-M4</org.apache.maven.plugins.maven-surefire-plugin.version>
-        <org-projectlombok.version>1.18.8</org-projectlombok.version>
+        <org.apache.commons-io.commons-io.version>2.11.0</org.apache.commons-io.commons-io.version>
+        <org.apache.logging.log4j.version>2.17.0</org.apache.logging.log4j.version>
+        <org.apache.maven.plugins.maven-compiler-plugin.version>3.8.1</org.apache.maven.plugins.maven-compiler-plugin.version>
+        <org.apache.maven.plugins.maven-surefire-plugin.version>3.0.0-M5</org.apache.maven.plugins.maven-surefire-plugin.version>
+        <org.projectlombok.lombok.version>1.18.22</org-projectlombok.version>
     </properties>
 
     <dependencyManagement>
@@ -48,20 +49,20 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>${org-projectlombok.version}</version>
+                <version>${org.projectlombok.lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
 
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${org.apache.logging.log4j.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>${org.apache.commons.commons-io.version}</version>
+                <version>${org.apache.commons-io.commons-io.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -79,7 +80,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>${org.apache.maven.plugins.maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>

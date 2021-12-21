@@ -5,7 +5,7 @@
     <name>Scaffold Archetype</name>
     <description>A quick start configuration for creating new Scaffold Projects</description>
     <url>https://github.com/kgress/scaffold-archetype</url>
-    <groupId>io.github.kgress.scaffold-archetype</groupId>
+    <groupId>io.github.kgress.scaffold</groupId>
     <artifactId>scaffold-archetype</artifactId>
     <version>DEV</version>
     <packaging>maven-archetype</packaging>
@@ -21,15 +21,15 @@
     <developers>
         <developer>
             <name>Kyle Gress</name>
-            <email>kgress88@gmail.copm</email>
+            <email>kgress88@gmail.com</email>
             <organizationUrl>https://github.com/kgress</organizationUrl>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:kgress/scaffold-archetype.git</connection>
-        <url>scm:git:git@github.com:kgress/scaffold-archetype.git</url>
-        <developerConnection>scm:git:git@github.com:kgress/scaffold-archetype.git</developerConnection>
+        <connection>scm:git:https://github.com/kgress/scaffold-archetype.git</connection>
+        <url>scm:git:https://github.com/kgress/scaffold-archetype.git</url>
+        <developerConnection>scm:git:https://github.com/kgress/scaffold-archetype.git</developerConnection>
     </scm>
 
     <distributionManagement>
@@ -45,9 +45,15 @@
 
     <properties>
         <java.version>11</java.version>
-        <maven-archetype-plugin.version>3.1.1</maven-archetype-plugin.version>
-        <maven-resource-plugin.version>3.1.0</maven-resource-plugin.version>
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <org.codehaus.mojo.versions-maven-plugin.version>2.8.1</org.codehaus.mojo.versions-maven-plugin.version>
+        <org.apache.maven.archetype.archetype-packaging.version>3.2.0</org.apache.maven.archetype.archetype-packaging.version>
+        <org.apache.maven.plugins.maven-compiler-plugin.version>3.8.1</org.apache.maven.plugins.maven-compiler-plugin.version>
+        <org.apache.maven.plugins.maven-javadoc-plugin.version>3.3.1</org.apache.maven.plugins.maven-javadoc-plugin.version>
+        <org.apache.maven.plugins.maven-scm-plugin.version>1.12.0</org.apache.maven.plugins.maven-scm-plugin.version>
+        <org.apache.maven.plugins.maven-gpg-plugin.version>3.0.1</org.apache.maven.plugins.maven-gpg-plugin.version>
+        <org.apache.maven.plugins.maven-resource-plugin.version>3.2.0</org.apache.maven.plugins.maven-resource-plugin.version>
+        <org.apache.maven.plugins.maven-source-plugin.version>3.2.1</org.apache.maven.plugins.maven-source-plugin.version>
+        <org.sonatype.plugins.nexus-staging-maven-plugin.version>1.6.8</org.sonatype.plugins.nexus-staging-maven-plugin.version>
     </properties>
 
     <build>
@@ -55,7 +61,7 @@
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
                 <artifactId>archetype-packaging</artifactId>
-                <version>${maven-archetype-plugin.version}</version>
+                <version>${org.apache.maven.archetype.archetype-packaging.version}</version>
             </extension>
         </extensions>
 
@@ -64,7 +70,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-plugin</artifactId>
-                    <version>1.11.2</version>
+                    <version>${org.apache.maven.plugins.maven-scm-plugin.version}</version>
                     <configuration>
                         <tag>${project.version}</tag>
                     </configuration>
@@ -73,37 +79,37 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <version>${org.apache.maven.plugins.maven-source-plugin.version}</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>${org.apache.maven.plugins.maven-javadoc-plugin.version}</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>1.6.8</version>
+                    <version>${org.sonatype.plugins.nexus-staging-maven-plugin.version}</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>1.6</version>
+                    <version>${org.apache.maven.plugins.maven-gpg-plugin.version}</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
-                    <version>2.7</version>
+                    <version>${org.codehaus.mojo.versions-maven-plugin.version}</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler-plugin.version}</version>
+                    <version>${org.apache.maven.plugins.maven-compiler-plugin.version}</version>
                     <configuration>
                         <target>${java.version}</target>
                         <source>${java.version}</source>
@@ -117,7 +123,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven-resource-plugin.version}</version>
                 <configuration>
                     <addDefaultExcludes>false</addDefaultExcludes>
                 </configuration>
@@ -126,7 +131,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-archetype-plugin</artifactId>
-                <version>${maven-archetype-plugin.version}</version>
             </plugin>
 
             <plugin>
@@ -170,7 +174,6 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -192,6 +195,13 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <!-- Bypasses the gpg: signing failed: Inappropriate ioctl for device error -->
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>

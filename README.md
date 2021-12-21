@@ -19,7 +19,7 @@ To view the most current version, [visit the Central Repository](https://search.
 * Maven 3.x
 
 # CI
-The build can be found [on Travis CI](https://travis-ci.org/kgress/scaffold-archetype).
+The build can be found [on the Github Actions page](https://github.com/kgress/scaffold-archetype/actions).
 
 # Running the Archetype
 Currently, the best way to use this archetype is to invoke an archetype:generate command after cloning this project. 

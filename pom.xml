@@ -5,7 +5,7 @@
     <name>Scaffold Archetype</name>
     <description>A quick start configuration for creating new Scaffold Projects</description>
     <url>https://github.com/kgress/scaffold-archetype</url>
-    <groupId>io.github.kgress.scaffold</groupId>
+    <groupId>io.github.kgress.scaffold-archetype</groupId>
     <artifactId>scaffold-archetype</artifactId>
     <version>DEV</version>
     <packaging>maven-archetype</packaging>
@@ -101,6 +101,15 @@
                 </plugin>
 
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${org.apache.maven.plugins.maven-resource-plugin.version}</version>
+                    <configuration>
+                        <addDefaultExcludes>false</addDefaultExcludes>
+                    </configuration>
+                </plugin>
+
+                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>${org.codehaus.mojo.versions-maven-plugin.version}</version>
@@ -123,9 +132,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <configuration>
-                    <addDefaultExcludes>false</addDefaultExcludes>
-                </configuration>
             </plugin>
 
             <plugin>

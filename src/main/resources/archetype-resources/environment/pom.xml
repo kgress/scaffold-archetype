@@ -14,7 +14,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.kgress.scaffold</groupId>
+            <groupId>io.github.kgress.scaffold-archetype</groupId>
             <artifactId>environment</artifactId>
         </dependency>
     </dependencies>

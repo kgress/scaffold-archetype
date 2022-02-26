@@ -29,7 +29,7 @@ will be updated to reflect that.
 ## Local - Archetype:Generate
 1. Clone the repo `git clone git@github.com:kgress/scaffold-archetype.git` in a directory where you would like the scaffold-archetype to be
 2. Switch directory to `scaffold-archetype` and run a `mvn install`
-3. Switch directory back to where you would like to create the new project with the archetype
+3. Switch directory back to where you would like to create the new project with the archetype. A new folder will automatically be created for you based on the artifact name provided to the archetype generator.
 4. Run the following command: `mvn archetype:generate -DarchetypeGroupId=io.github.kgress.scaffold-archetype -DarchetypeArtifactId=scaffold-archetype -DarchetypeVersion=DEV`
 5. Follow the prompts for entering your groupId and artifactId (along with version and package if you want something different than the defaults)
 6. The archetype will generate the new project for you.

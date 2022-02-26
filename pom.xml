@@ -45,15 +45,16 @@
 
     <properties>
         <java.version>11</java.version>
-        <org.codehaus.mojo.versions-maven-plugin.version>2.8.1</org.codehaus.mojo.versions-maven-plugin.version>
-        <org.apache.maven.archetype.archetype-packaging.version>3.2.0</org.apache.maven.archetype.archetype-packaging.version>
-        <org.apache.maven.plugins.maven-compiler-plugin.version>3.8.1</org.apache.maven.plugins.maven-compiler-plugin.version>
-        <org.apache.maven.plugins.maven-javadoc-plugin.version>3.3.1</org.apache.maven.plugins.maven-javadoc-plugin.version>
-        <org.apache.maven.plugins.maven-scm-plugin.version>1.12.0</org.apache.maven.plugins.maven-scm-plugin.version>
+        <org.apache.maven.archetype.archetype-packaging.version>3.2.1</org.apache.maven.archetype.archetype-packaging.version>
+        <org.apache.maven.plugins.maven-archetype-plugin.version>3.2.1</org.apache.maven.plugins.maven-archetype-plugin.version>
+        <org.apache.maven.plugins.maven-compiler-plugin.version>3.10.0</org.apache.maven.plugins.maven-compiler-plugin.version>
+        <org.apache.maven.plugins.maven-javadoc-plugin.version>3.3.2</org.apache.maven.plugins.maven-javadoc-plugin.version>
         <org.apache.maven.plugins.maven-gpg-plugin.version>3.0.1</org.apache.maven.plugins.maven-gpg-plugin.version>
-        <org.apache.maven.plugins.maven-resource-plugin.version>3.2.0</org.apache.maven.plugins.maven-resource-plugin.version>
+        <org.apache.maven.plugins.maven-resources-plugin.version>3.2.0</org.apache.maven.plugins.maven-resources-plugin.version>
+        <org.apache.maven.plugins.maven-scm-plugin.version>1.12.2</org.apache.maven.plugins.maven-scm-plugin.version>
         <org.apache.maven.plugins.maven-source-plugin.version>3.2.1</org.apache.maven.plugins.maven-source-plugin.version>
-        <org.sonatype.plugins.nexus-staging-maven-plugin.version>1.6.8</org.sonatype.plugins.nexus-staging-maven-plugin.version>
+        <org.codehaus.mojo.versions-maven-plugin.version>2.9.0</org.codehaus.mojo.versions-maven-plugin.version>
+        <org.sonatype.plugins.nexus-staging-maven-plugin.version>1.6.12</org.sonatype.plugins.nexus-staging-maven-plugin.version>
     </properties>
 
     <build>
@@ -103,16 +104,21 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>${org.apache.maven.plugins.maven-resource-plugin.version}</version>
+                    <version>${org.apache.maven.plugins.maven-resources-plugin.version}</version>
                     <configuration>
+                        <!-- needed to include .gitignore -->
                         <addDefaultExcludes>false</addDefaultExcludes>
                     </configuration>
                 </plugin>
 
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>${org.codehaus.mojo.versions-maven-plugin.version}</version>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>${org.apache.maven.plugins.maven-archetype-plugin.version}</version>
+                    <configuration>
+                        <!-- needed to include .gitignore -->
+                        <useDefaultExcludes>false</useDefaultExcludes>
+                    </configuration>
                 </plugin>
 
                 <plugin>
@@ -124,6 +130,12 @@
                         <source>${java.version}</source>
                         <release>${java.version}</release>
                     </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${org.codehaus.mojo.versions-maven-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

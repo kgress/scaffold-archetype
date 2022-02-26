@@ -44,4 +44,4 @@ target/
 test-output/
 
 # Spring
-**/application-OVERRIDES.properties
+**/application-overrides.properties

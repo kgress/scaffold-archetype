@@ -1,77 +1,49 @@
 package ${package};
 
 import io.github.kgress.scaffold.environment.config.ScaffoldConfiguration;
-import io.github.kgress.scaffold.extensions.SauceExtension;
-import io.github.kgress.scaffold.webdriver.ScaffoldBaseTest;
+import io.github.kgress.scaffold.ScaffoldBaseTest;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.openqa.selenium.By;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
- * Base Test
- *
- * The base test file is used to include any project specific spring boot wiring or configurations along with the Scaffold configuration.
- * By extending off of {@link ScaffoldConfiguration}, all web driver instantiation and tear down is handled automatically. Therefore,
- * all test classes should be extending off of this class.
- *
+ * This file is used to include any project specific spring boot wiring or configurations along with
+ * the Scaffold configuration. By extending off of {@link ScaffoldConfiguration}, all web driver
+ * instantiation and tear down is handled automatically. Therefore, all test classes should extend
+ * this file, BaseTest.
+ * <p>
  * Class Anatomy
- *
- * The annotations are important for configuring the execution method (what was once known in Junit4 as the test runner), the parallelization mode,
- * and the spring configuration for loading the application context / spring boot test app for Scaffold and your own project. Since we don't
- * need a web environment, it's also useful to set this to none.
- *
- * Since the base test file shouldn't have any testing in it, it's important to declare this class abstract so any Junit5 methods are not ran as tests.
- * Extending ScaffoldBaseTest also gets you the driver initialization and tear down and will also get you the WebDriverWrapper instance from the current thread.
- *
- * These protected static final {@link String}'s are test data variables used in at least more than one test file. In this case,
- * the username and password are required for login page tests and inventory page tests. Since both of those test files extend
- * off of BaseTest, it's best to put those data points in this class.
- *
- * The <prep>@Autowired</prep> annotation is a means of dependency injection within Spring Boot, with this sort of usage known as composition.
- * With this annotation, we can wire in an instance of a <prep>@Component</prep> with ease. Since it's protected, any class that
- * extends off of BaseTest will now be able to access everything from ScaffoldBaseTest and the Navigation class from your own project.
+ * <p>
+ * The annotations are important for configuring our testing environment:
+ * <p>
+ * - Slf4j is added to this class to allow for any additional logging in a test.
+ * - Execution is added to this class for configuring execution settings. In this case, setting
+ *   execution mode to concurrent so all tests are ran in parallell.
+ * - ExtendWith is added to provide additional access to the Spring Boot application context.
+ *   Scaffold provides a Sauce extension if testing against a SauceLabs environment. To use it,
+ *   replace SpringExtension.class with SauceExtension.class.
+ * - SpringBootTest is added here to provided additional configuration of the Spring Boot
+ *   environment. It sets the WebEnvirnoment to none and loads in configuration classes for
+ *   Scaffold and the local project.
  */
 @Slf4j
 @Execution(ExecutionMode.CONCURRENT)
-@ExtendWith({SauceExtension.class})
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(
-        webEnvironment = SpringBootTest.WebEnvironment.NONE,
-        classes = { EnvironmentConfig.class, ScaffoldConfiguration.class }
+    webEnvironment = SpringBootTest.WebEnvironment.NONE,
+    classes = {EnvironmentConfig.class, ScaffoldConfiguration.class}
 )
 public abstract class BaseTest extends ScaffoldBaseTest {
 
-    // Shared constant variables that are used in the LoginTest and InventoryTest files
-    protected static final String USERNAME = "standard_user";
-    protected static final String PASSWORD = "secret_sauce";
-
-    /**
-     * The direct injection of the {@link Navigation} class that contains all of our web driver navigation. Because this is located
-     * in the test directory, injection by composition is best practice.
-     */
-    @Autowired
-    protected Navigation navigation;
-
-    /**
-     * This setting activates explicit waits for all elements that are interacted with.
-     */
-    @BeforeAll
-    public static void configureOptions() {
-        enableExplicitWaits();
-    }
-
-    /**
-     * An example of a potential shared method tests could require. Execute Hover over Element by CSS
-     *
-     * @param cssSelector the cssSelector to hover over
-     */
-    protected void hoverOverElementByCSS(String cssSelector) {
-        log.debug(String.format("Hovering over element %s", cssSelector));
-        var element = getWebDriverWrapper().getBaseWebDriver().findElement(By.cssSelector(cssSelector));
-        getWebDriverWrapper().getActions().moveToElement(element).build().perform();
-    }
+  /**
+   * Spring Boot injection of the Navigation method at the BaseTest level for all child test files
+   * to inherit. Uses composition to inject the navigation class, instead of constructor level. This
+   * is because we are in a test context, and composition is preferred.
+   */
+  @Autowired
+  protected Navigation navigation;
 }

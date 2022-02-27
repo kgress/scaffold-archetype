@@ -14,38 +14,15 @@
 
     <properties>
         <java.version>11</java.version>
-        <io.github.kgress.scaffold.version>2.12.0</io.github.kgress.scaffold.version>
+        <io.github.kgress.scaffold.version>3.3.0</io.github.kgress.scaffold.version>
         <org.apache.commons-io.commons-io.version>2.11.0</org.apache.commons-io.commons-io.version>
-        <org.apache.logging.log4j.version>2.17.0</org.apache.logging.log4j.version>
-        <org.apache.maven.plugins.maven-compiler-plugin.version>3.8.1</org.apache.maven.plugins.maven-compiler-plugin.version>
+        <org.apache.maven.plugins.maven-compiler-plugin.version>3.10.0</org.apache.maven.plugins.maven-compiler-plugin.version>
         <org.apache.maven.plugins.maven-surefire-plugin.version>3.0.0-M5</org.apache.maven.plugins.maven-surefire-plugin.version>
-        <org.projectlombok.lombok.version>1.18.22</org-projectlombok.version>
+        <org.projectlombok.lombok.version>1.18.22</org.projectlombok.lombok.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>io.github.kgress.scaffold-archetype</groupId>
-                <artifactId>framework</artifactId>
-                <version>${io.github.kgress.scaffold.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>junit</artifactId>
-                        <groupId>junit</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>junit-vintage-engine</artifactId>
-                        <groupId>org.junit.vintage</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>io.github.kgress.scaffold-archetype</groupId>
-                <artifactId>environment</artifactId>
-                <version>${io.github.kgress.scaffold.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -54,9 +31,15 @@
             </dependency>
 
             <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${org.apache.logging.log4j.version}</version>
+                <groupId>io.github.kgress.scaffold</groupId>
+                <artifactId>framework</artifactId>
+                <version>${io.github.kgress.scaffold.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.kgress.scaffold</groupId>
+                <artifactId>environment</artifactId>
+                <version>${io.github.kgress.scaffold.version}</version>
             </dependency>
 
             <dependency>
@@ -66,14 +49,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <!--Used in both framework and core modules-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>

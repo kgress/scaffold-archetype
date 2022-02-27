@@ -14,7 +14,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.kgress.scaffold-archetype</groupId>
+            <groupId>io.github.kgress.scaffold</groupId>
             <artifactId>framework</artifactId>
         </dependency>
 
@@ -22,6 +22,11 @@
             <groupId>${groupId}</groupId>
             <artifactId>environment</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 </project>
